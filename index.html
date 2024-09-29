@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Visiting My Poem Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #74b9ff, #a29bfe);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 3em;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-top: 0;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 1s forwards;
+            opacity: 0;
+            background-image: url('https://picsum.photos/800/400?random=6'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            color: white; /* Change text color to white for better visibility */
+            padding: 40px;
+            margin: 20px;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .links {
+            margin: 20px 0;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .links li {
+            margin: 10px 0;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #ffeaa7; /* Lighter color for links */
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .links a:hover {
+            color: #d63031;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #2d3436, #00b894);
+            color: #fff;
+            text-align: center;
+            position: relative;
+            animation: fadeInFooter 1s forwards;
+        }
+
+        @keyframes fadeInFooter {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .footer-links {
+            margin: 10px 0;
+        }
+
+        .footer-links a {
+            color: #ffeaa7;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #d63031;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #e17055;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d63031;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Thank You for Visiting My English Project</h1>
+        <h2>Explore and Enjoy your life!</h2>
+    </header>
+
+    <div class="content">
+        <p>Welcome to my poem chart paper project! Below are some resources I used to create this project. I hope you enjoy reading my work!</p>
+        
+        <h2>Resources Used</h2>
+        <ul class="links">
+            <li><a href="https://wordcounter.net/" target="_blank">Word Counter</a></li>
+            <li><a href="https://www.merriam-webster.com/" target="_blank">Merriam Webster</a></li>
+            <li><a href="https://www.google.com/search?q=dictionary+meaning+&client=ms-android-transsion&sca_esv=ca6cebca9c503e50&sca_upv=1&sxsrf=ADLYWIJqPbFqW2d2qTWenbHgny0ssS7dvQ%3A1727639667115&ei=c7D5ZoTTBsfj2roPrbun6Ak&oq=dictionary+meaning+&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIhNkaWN0aW9uYXJ5IG1lYW5pbmcgMgsQABiABBiRAhiKBTILEAAYgAQYkQIYigUyCxAAGIAEGJECGIoFMgsQABiABBiRAhiKBTIFEAAYgAQyBRAAGIAEMgoQABiABBgUGIcCMgUQABiABEj1FVDKCFi1EnABeAGQAQCYAZUCoAGJCqoBBTAuMS41uAEDyAEA-AEBmAIHoAKkC8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgITEC4YgAQYsAMY0QMYQxjHARiKBcICEBAAGIAEGLEDGIMBGEYY-QHCAggQABiABBixA5gDAIgGAZAGEZIHBTEuMC42oAeKMA&sclient=mobile-gws-wiz-serp" target="_blank">Google dictionary</a></li>
+            <li><a href="https://www.reddit.com/" target="_blank">Reddit</a></li>
+            <li><a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a></li>
+            
+            <li><a href="https://github.com/Sanket3yoProgrammer" target="_blank">My GitHub Profile</a></li>
+        </ul>
+
+        <button onclick="alert('Thank you for your interest!')">Click Me!</button>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.content').style.opacity = '1';
+    </script>
+</body>
+</html>
