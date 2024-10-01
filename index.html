@@ -131,6 +131,7 @@
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin: 10px 0; /* Add margin for spacing between buttons */
         }
 
         button:hover {
@@ -158,6 +159,10 @@
         </ul>
 
         <button id="confetti-button">Click Me!</button>
+
+        <!-- New buttons for poem and download -->
+        <button onclick="location.href='poem.html'">View Poem</button>
+        <button id="download-button">Download Images</button>
     </div>
 
     <footer>
@@ -183,6 +188,26 @@
                 origin: { y: 0.6 }
             });
             alert('Thank you for your interest!');
+        });
+
+        // Function to download multiple images
+        document.getElementById('download-button').addEventListener('click', function() {
+            const images = [
+                'images/image1.jpg',
+                'images/image2.jpg',
+                'images/image3.jpg',
+                'images/image4.jpg',
+                'images/image5.jpg'
+            ];
+
+            images.forEach(image => {
+                const a = document.createElement('a');
+                a.href = image;
+                a.download = image.split('/').pop(); // Use the image file name as the download name
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
         });
     </script>
 </body>
