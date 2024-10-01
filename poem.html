@@ -109,7 +109,7 @@
             background: rgba(0, 255, 255, 0.3);
             backdrop-filter: blur(10px);
             animation: moveAround 10s infinite alternate;
-            z-index: 0;
+            z-index: -1; /* Set z-index to -1 to ensure circles are below text */
         }
 
         /* Fix circle cutting issue */
@@ -257,11 +257,8 @@
 
         <div class="image-section">
             <!-- Random images embedded from Unsplash -->
-            <img src="https://source.unsplash.com/random/?ocean" alt="Ocean Image">
-            <img src="https://source.unsplash.com/random/?ship" alt="Ship Image">
-        
             <img src="https://picsum.photos/800/400?random=6" alt=" Image">
-              </div>
+        </div>
 
         <!-- Cool floating circles for decoration -->
         <div class="cool-element circle1"></div>
