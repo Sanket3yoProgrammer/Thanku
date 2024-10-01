@@ -191,26 +191,42 @@
         });
 
         // Function to download multiple images
-document.getElementById('download-button').addEventListener('click', function() {
-    const images = [
-        'Picsart_24-09-29_11-58-20-419.jpg',
-        'Picsart_24-09-29_13-25-37-971.jpg',
-        'symbols.jpg',
-        'Picsart_24-09-30_08-22-24-213.jpg',
-        'Picsart_24-09-29_20-11-21-746.jpg',
-        'Picsart_24-09-29_15-21-24-871.jpg',
-        'Picsart_24-09-30_01-58-21-436.jpg'
-    ];
+    document.getElementById('download-button').addEventListener('click', function() {
+        const images = [
+            'Picsart_24-09-29_11-58-20-419.jpg',
+            'Picsart_24-09-29_13-25-37-971.jpg',
+            'symbols.jpg',
+            'Picsart_24-09-30_08-22-24-213.jpg',
+            'Picsart_24-09-29_20-11-21-746.jpg',
+            'Picsart_24-09-29_15-21-24-871.jpg',
+            'Picsart_24-09-30_01-58-21-436.jpg'
+        ];
 
-    images.forEach((image) => {
-        const a = document.createElement('a');
-        a.href = image;
-        a.download = image.split('/').pop(); // Use the image file name as the download name
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        // Function to download each image with a delay to avoid skipping any
+        const downloadImage = (image, delay) => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    const a = document.createElement('a');
+                    a.href = image;
+                    a.download = image.split('/').pop(); // Use the image file name as the download name
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    resolve();
+                }, delay);
+            });
+        };
+
+        // Sequentially download each image with a small delay (e.g., 300ms between downloads)
+        async function downloadImagesSequentially() {
+            for (let i = 0; i < images.length; i++) {
+                await downloadImage(images[i], 300); // Adjust delay as needed
+            }
+        }
+
+        downloadImagesSequentially();
     });
-});
+
     </script>
 </body>
 </html>
