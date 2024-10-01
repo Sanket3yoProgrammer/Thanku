@@ -248,15 +248,18 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
         function updateViewCount() {
-   const viewRef = db.ref('views');
+    const viewRef = db.ref('views');
 
-   viewRef.transaction((currentViews) => {
-      return (currentViews || 0) + 1;
-   });
+    viewRef.transaction((currentViews) => {
+        return (currentViews || 0) + 1;
+    });
 }
 
 // Call the function when the page loads
-window.onload = updateViewCount;
+window.onload = () => {
+    updateViewCount();
+    console.log('Page viewed'); // Optional: log to console for debugging
+};
     </script>
 
 </body>
