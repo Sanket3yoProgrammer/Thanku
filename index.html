@@ -190,43 +190,42 @@
             alert('Thank you for your interest!');
         });
 
-        // Function to download multiple images
-    document.getElementById('download-button').addEventListener('click', function() {
-        const images = [
-            'Picsart_24-09-29_11-58-20-419.jpg',
-            'Picsart_24-09-29_13-25-37-971.jpg',
-            'symbols.jpg',
-            'Picsart_24-09-30_08-22-24-213.jpg',
-            'Picsart_24-09-29_20-11-21-746.jpg',
-            'Picsart_24-09-29_15-21-24-871.jpg',
-            'Picsart_24-09-30_01-58-21-436.jpg'
-        ];
+        // Function to download multiple images with a pop-up instruction
+        document.getElementById('download-button').addEventListener('click', function() {
+            alert('Click download quickly to download 7 images. After 3.5 seconds, the next download will start, so click very fast! Ensure all 7 images are downloaded, or click "Download Project Text Material" once more. After downloading all images, leave the page or go to the "Downloads" section in your browser.');
 
-        // Function to download each image with a delay to avoid skipping any
-        const downloadImage = (image, delay) => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    const a = document.createElement('a');
-                    a.href = image;
-                    a.download = image.split('/').pop(); // Use the image file name as the download name
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    resolve();
-                }, delay);
-            });
-        };
+            const images = [
+                'Picsart_24-09-29_11-58-20-419.jpg',
+                'Picsart_24-09-29_13-25-37-971.jpg',
+                'symbols.jpg',
+                'Picsart_24-09-30_08-22-24-213.jpg',
+                'Picsart_24-09-29_20-11-21-746.jpg',
+                'Picsart_24-09-29_15-21-24-871.jpg',
+                'Picsart_24-09-30_01-58-21-436.jpg'
+            ];
 
-        // Sequentially download each image with a small delay (e.g., 300ms between downloads)
-        async function downloadImagesSequentially() {
-            for (let i = 0; i < images.length; i++) {
-                await downloadImage(images[i], 3500); // Adjust delay as needed
+            const downloadImage = (image, delay) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        const a = document.createElement('a');
+                        a.href = image;
+                        a.download = image.split('/').pop();
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        resolve();
+                    }, delay);
+                });
+            };
+
+            async function downloadImagesSequentially() {
+                for (let i = 0; i < images.length; i++) {
+                    await downloadImage(images[i], 3500); // 3.5 seconds delay between each download
+                }
             }
-        }
 
-        downloadImagesSequentially();
-    });
-
+            downloadImagesSequentially();
+        });
     </script>
 </body>
 </html>
