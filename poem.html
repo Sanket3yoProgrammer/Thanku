@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyage of the Infinity</title>
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #001510 0%, #003046 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Title */
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        p.subtitle {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #d1d1d1;
+            opacity: 0.8;
+        }
+
+        /* Poem lines */
+        .poem p {
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        /* Stanza-specific delays */
+        .poem p:nth-child(odd) {
+            animation-delay: 0.5s;
+        }
+
+        .poem p:nth-child(even) {
+            animation-delay: 0.8s;
+        }
+
+        /* Stanza separation */
+        .poem {
+            margin-bottom: 30px;
+        }
+
+        .poem.stanza {
+            margin-bottom: 40px;
+        }
+
+        /* Image Section */
+        .image-section {
+            margin-top: 30px;
+            animation: fadeIn 2s ease-in;
+            position: relative;
+            z-index: 1;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            margin: 10px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            transition: transform 0.7s ease;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Cool elements */
+        .cool-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            animation: moveAround 10s infinite alternate;
+            z-index: 0;
+        }
+
+        /* Fix circle cutting issue */
+        .cool-element {
+            overflow: visible; /* Ensure the whole circle shows */
+        }
+
+        .cool-element.circle1 {
+            width: 120px;
+            height: 120px;
+            top: 5%;
+            left: -10%;
+        }
+
+        .cool-element.circle2 {
+            width: 100px;
+            height: 100px;
+            bottom: 15%;
+            right: -15%;
+        }
+
+        .cool-element.circle3 {
+            width: 80px;
+            height: 80px;
+            top: 60%;
+            left: 25%;
+        }
+
+        .cool-element.circle4 {
+            width: 90px;
+            height: 90px;
+            bottom: 10%;
+            right: 5%;
+        }
+
+        .cool-element.circle5 {
+            width: 110px;
+            height: 110px;
+            top: 20%;
+            right: 10%;
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes moveAround {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px) scale(1.2);
+            }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .poem p {
+                font-size: 1rem;
+                line-height: 1.5rem;
+            }
+
+            .cool-element.circle1,
+            .cool-element.circle2,
+            .cool-element.circle3,
+            .cool-element.circle4,
+            .cool-element.circle5 {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Voyage of the Infinity</h1>
+            <p class="subtitle">journey of life and beyond!</p>
+        </header>
+
+        <section class="poem stanza">
+            <p>The waves, they rise, with fury roar,</p>
+            <p>A ship adrift to distant shore,</p>
+            <p>The sun a beacon, bright yet cold,</p>
+            <p>The shadows grasp, the chains enfold.</p>
+        </section>
+
+        <section class="poem stanza">
+            <p>For every sailor, lost and found,</p>
+            <p>In waters deep where hope sinks down,</p>
+            <p>A compass spins with fate untold,</p>
+            <p>The anchor breaks, the crew grows old.</p>
+        </section>
+
+        <section class="poem stanza">
+            <p>Between the horror and the shade,</p>
+            <p>A fragile line, a course is laid,</p>
+            <p>Through storms and calm, they voyage on,</p>
+            <p>Until the night consumes the dawn.</p>
+        </section>
+
+        <section class="poem stanza">
+            <p>And yet the ship sails evermore,</p>
+            <p>To seek the light, or ocean’s floor.</p>
+            <p>For in the sea, the soul may find,</p>
+            <p>The depths reflect the boundless mind.</p>
+        </section>
+
+        <section class="poem stanza">
+            <p>Through faith and reason, paths entwine,</p>
+            <p>In ceaseless search for truths divine,</p>
+            <p>With science charting stars on high,</p>
+            <p>And prayers to gods who watch the sky.</p>
+        </section>
+
+        <div class="image-section">
+            <!-- Random images embedded from Unsplash -->
+            <img src="https://source.unsplash.com/featured/?ocean" alt="Ocean Image">
+            <img src="https://source.unsplash.com/featured/?sunset" alt="Sunset Image">
+            <img src="https://source.unsplash.com/featured/?sailboat" alt="Sailboat Image">
+        </div>
+
+        <!-- Cool floating circles for decoration -->
+        <div class="cool-element circle1"></div>
+        <div class="cool-element circle2"></div>
+        <div class="cool-element circle3"></div>
+        <div class="cool-element circle4"></div>
+        <div class="cool-element circle5"></div>
+
+        <footer>
+            <p>Follow the journey, explore the infinite.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
