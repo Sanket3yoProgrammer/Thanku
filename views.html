@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Views Count</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2f4f7f;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1; /* Add z-index to the container */
+        }
+
+        .title {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeIn 2s forwards;
+        }
+
+        .view-counter {
+            font-size: 200px;
+            font-weight: bold;
+            animation: fadeIn 2s forwards;
+        }
+
+        .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-color: #3498db;
+            animation: pulse 2s infinite;
+            z-index: 0; /* Set z-index of the circle to 0 */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Views Count</div>
+        <div class="view-counter" id="view-counter"></div>
+    </div>
+    <div class="circle"></div>
+
+    <!-- Add these script tags to your HTML file -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDFv-v7d5v9IfGpZfZWJeWYWcjXiM4707M",
+            authDomain: "viewscounts.firebaseapp.com",
+            databaseURL: "https://viewscounts-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "viewscounts",
+            storageBucket: "viewscounts.appspot.com",
+            messagingSenderId: "903122808766",
+            appId: "1:903122808766:web:2604460f3111a0e94c13ef",
+            measurementId: "G-6K87PWLQDB"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the Realtime Database
+        const db = firebase.database();
+
+        // Get a reference to the views count node
+        const viewsRef = db.ref('views');
+
+        // Fetch the views count and update the HTML element
+        viewsRef.on('value', snapshot => {
+            const viewsCount = snapshot.val();
+            document.getElementById('view-counter').innerText = viewsCount.toString();
+        });
+    </script>
+</body>
+</html>
