@@ -227,5 +227,36 @@
             downloadImagesSequentially();
         });
     </script>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
+<script>
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDQIFZejufSpOHgdIlm6g-9VK_8Fe6Meto",
+        authDomain: "purplegang-abc369.firebaseapp.com",
+        databaseURL: "https://purplegang-abc369-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "purplegang-abc369",
+        storageBucket: "purplegang-abc369.appspot.com",
+        messagingSenderId: "677058245274",
+        appId: "1:677058245274:web:383ae54b16bb677fc76523",
+        measurementId: "G-DQQF5M5PMB"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Function to increment view count
+    function incrementViewCount() {
+        const viewsRef = database.ref('views');
+        viewsRef.transaction(currentViews => {
+            return (currentViews || 0) + 1;
+        });
+    }
+
+    // Increment view count on page load
+    window.onload = incrementViewCount;
+</script>
 </body>
 </html>
