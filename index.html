@@ -201,13 +201,16 @@
                 'Picsart_24-09-30_01-58-21-436.jpg'
             ];
 
-            images.forEach(image => {
-                const a = document.createElement('a');
-                a.href = image;
-                a.download = image.split('/').pop(); // Use the image file name as the download name
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
+            images.forEach((image, index) => {
+                console.log('Attempting to download:', image); // Log each download attempt
+                setTimeout(() => {
+                    const a = document.createElement('a');
+                    a.href = image;
+                    a.download = image.split('/').pop(); // Use the image file name as the download name
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }, index * 100); // 100 milliseconds delay between downloads
             });
         });
     </script>
