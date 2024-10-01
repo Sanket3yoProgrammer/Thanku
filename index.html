@@ -227,40 +227,5 @@
             downloadImagesSequentially();
         });
     </script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js"></script>
-
-
-    <script>
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDQIFZejufSpOHgdIlm6g-9VK_8Fe6Meto",
-  authDomain: "purplegang-abc369.firebaseapp.com",
-  databaseURL: "https://purplegang-abc369-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "purplegang-abc369",
-  storageBucket: "purplegang-abc369.appspot.com",
-  messagingSenderId: "677058245274",
-  appId: "1:677058245274:web:383ae54b16bb677fc76523",
-  measurementId: "G-DQQF5M5PMB"
-};
-
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-        function updateViewCount() {
-    const viewRef = db.ref('views');
-
-    viewRef.transaction((currentViews) => {
-        return (currentViews || 0) + 1;
-    });
-}
-
-// Call the function when the page loads
-window.onload = () => {
-    updateViewCount();
-    console.log('Page viewed'); // Optional: log to console for debugging
-};
-    </script>
-
 </body>
 </html>
