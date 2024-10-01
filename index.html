@@ -253,6 +253,32 @@
             downloadImagesSequentially();
         });
     </script>
-    
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
+<script>
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDFv-v7d5v9IfGpZfZWJeWYWcjXiM4707M",
+        authDomain: "viewscounts.firebaseapp.com",
+        databaseURL: "https://viewscounts-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "viewscounts",
+        storageBucket: "viewscounts.appspot.com",
+        messagingSenderId: "903122808766",
+        appId: "1:903122808766:web:2604460f3111a0e94c13ef",
+        measurementId: "G-6K87PWLQDB"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Increment view counter on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const viewsRef = database.ref('views'); // Reference to the 'views' node
+        viewsRef.transaction((currentViews) => {
+            return (currentViews || 0) + 1; // Increment the view count
+        });
+    });
+</script>
 </body>
 </html>
